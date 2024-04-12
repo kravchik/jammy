@@ -6,7 +6,6 @@ import yk.ycollections.YMap;
 import yk.ycollections.YSet;
 
 import static yk.ycollections.YArrayList.al;
-import static yk.ycollections.YHashSet.hs;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +13,7 @@ import static yk.ycollections.YHashSet.hs;
  * Date: 12/09/16
  * Time: 09:48
  */
-public class MatchOr implements MatchCustom {
+public class MatchOr implements MatchCustomPattern {
     public YList<Object> variants;
 
     public MatchOr() {
@@ -33,11 +32,7 @@ public class MatchOr implements MatchCustom {
 
     @Override
     public YSet<YMap<String, Object>> match(Matcher matcher, Object data, YMap<String, Object> cur) {
-        for (Object variant : variants) {
-            YSet<YMap<String, Object>> result = matcher.match(data, variant, cur);
-            if (result.notEmpty()) return result;
-        }
-        return hs();
+        return variants.flatMap(v -> matcher.match(data, v, cur)).toSet();
     }
 
     @Override

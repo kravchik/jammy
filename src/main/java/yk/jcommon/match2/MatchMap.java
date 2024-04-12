@@ -15,7 +15,7 @@ import static yk.ycollections.YHashSet.hs;
  * Time: 10:44
  */
 //TODO match keys
-public class MatchMap implements MatchCustom {
+public class MatchMap implements MatchCustomPattern {
     public YMap pattern;
     public MatchVar other;
 

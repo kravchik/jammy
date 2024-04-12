@@ -6,7 +6,7 @@ import yk.jcommon.search.SSearch;
 import yk.ycollections.YArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static yk.jcommon.match2.MatcherShortNames.p;
+import static yk.jcommon.match2.MatcherShortNames.obj;
 import static yk.ycollections.YArrayList.al;
 import static yk.ycollections.YHashMap.hm;
 
@@ -28,7 +28,7 @@ public class TestProbe {
         }
 
         {
-            Probe probe = new Probe(hm("k", al("v")), p(YArrayList.class));
+            Probe probe = new Probe(hm("k", al("v")), obj(YArrayList.class));
             SSearch.Node<State> node = probe.nextSolution(100);
             System.out.println("!" + node.state.stackTrace.toString("\n"));
         }

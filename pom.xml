@@ -95,6 +95,11 @@
             <artifactId>ycollections</artifactId>
             <version>0.2.1</version>
         </dependency>
+        <dependency>
+            <groupId>yk</groupId>
+            <artifactId>yads</artifactId>
+            <version>0.2-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <distributionManagement>

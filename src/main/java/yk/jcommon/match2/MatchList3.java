@@ -16,7 +16,7 @@ import static yk.ycollections.YHashSet.hs;
  * Date: 28/10/15
  * Time: 16:43
  */
-public class MatchList3 implements MatchCustom {
+public class MatchList3 implements MatchCustomPattern {
     public Object before;
     public Object x;
     public Object after;

@@ -18,12 +18,12 @@ import static yk.ycollections.YArrayList.al;
 public class MatcherShortNames {
     public static final Object OTHER = new Object();
 
-    public static MatchProperty p(String name, Object... rest) {
-        return MatchProperty.p(name, rest);
+    public static MatchObject obj(String name, Object... rest) {
+        return MatchObject.obj(name, rest);
     }
 
-    public static MatchProperty p1(String name, boolean isMethod, Object... rest) {
-        return MatchProperty.p1(name, isMethod, rest);
+    public static MatchObject objNamed(String name, boolean isMethod, Object... rest) {
+        return MatchObject.objNamed(name, isMethod, rest);
     }
 
     public static MatchVar var(String name) {
@@ -34,12 +34,12 @@ public class MatcherShortNames {
         return new MatchVar(name, rest);
     }
 
-    public static MatchProperty p(Class c, Object... rest) {
-        return MatchProperty.p("getClass", al(c).withAll((List) al(rest)).toArray());
+    public static MatchObject obj(Class c, Object... rest) {
+        return MatchObject.obj("getClass", al(c).withAll((List) al(rest)).toArray());
     }
 
-    public static MatchProperty p1(Class c, Object... rest) {
-        return MatchProperty.p1("getClass", true, al(c).withAll((List) al(rest)).toArray());
+    public static MatchObject objNamed(Class c, Object... rest) {
+        return MatchObject.objNamed("getClass", true, al(c).withAll((List) al(rest)).toArray());
     }
 
     public static MatchByIndex i(Object value) {
@@ -78,9 +78,9 @@ public class MatcherShortNames {
         Object last = null;
         for (Object o : al(oo).reverse()) {
             if (last == null);
-            else if (o instanceof MatchProperty) {
-                MatchProperty p = (MatchProperty) o;
-                Tuple<String, MatchProperty.PropertyDesc> lastPare = p.pp.last();
+            else if (o instanceof MatchObject) {
+                MatchObject p = (MatchObject) o;
+                Tuple<String, MatchObject.PropertyDesc> lastPare = p.pp.last();
                 if (lastPare.b.value != null) BadException.die("last pare in Property must be key to null, but was " + lastPare);
                 lastPare.b.value = last;
             } else if (o instanceof MatchByIndex) {

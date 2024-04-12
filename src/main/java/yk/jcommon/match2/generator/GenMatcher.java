@@ -1,5 +1,6 @@
 package yk.jcommon.match2.generator;
 
+import yk.jcommon.match2.MatchAny;
 import yk.jcommon.match2.MatchVar;
 import yk.jcommon.utils.Util;
 import yk.ycollections.YMap;
@@ -31,6 +32,7 @@ public class GenMatcher {
         if (pattern instanceof MatchVar) return next(data, (MatchVar) pattern, cur);
 
         if (pattern instanceof GenMatchCustom) return ((GenMatchCustom) pattern).next(this, data, cur);
+        if (pattern instanceof MatchAny) return cur;
 
 
         if (Util.equalsWithNull(data, pattern)) return cur;
