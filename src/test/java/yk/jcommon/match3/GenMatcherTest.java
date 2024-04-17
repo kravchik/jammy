@@ -1,4 +1,4 @@
-package yk.jcommon.match2.generator;
+package yk.jcommon.match3;
 
 import org.junit.Test;
 

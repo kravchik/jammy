@@ -1,4 +1,4 @@
-package yk.jcommon.match2.generator;
+package yk.jcommon.match3;
 
 import yk.jcommon.match2.MatchAny;
 import yk.jcommon.match2.MatchVar;
@@ -9,6 +9,8 @@ import static yk.ycollections.YHashMap.hm;
 
 /**
  * Created by Yuri Kravchik on 19/11/16.
+ *
+ * Generative matcher, which produces results as it goes, without need to collect all variations at once
  */
 public class GenMatcher {
     private Object data;
