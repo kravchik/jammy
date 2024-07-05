@@ -10,6 +10,7 @@ import yk.jcommon.utils.MyMath;
 import java.io.Serializable;
 import java.util.Objects;
 
+import static yk.jcommon.fastgeom.Vec2i.v2i;
 import static yk.jcommon.fastgeom.Vec3f.v3;
 
 /**
@@ -30,6 +31,7 @@ public final class Vec2f implements Serializable {
     public static Vec2f fromAngle(float angle) {return new Vec2f((float)Math.cos(angle), (float) Math.sin(angle));}
     public Vec2f copy() {return new Vec2f(x, y);}
     public void copyFrom(Vec2f other) {this.x = other.x;this.y = other.y;}
+    public Vec2i toVec2i() {return v2i((int)x, (int)y);}
 
     //setters
     public Vec3f v3WithX(float x) {return v3(x, this.x, y);}

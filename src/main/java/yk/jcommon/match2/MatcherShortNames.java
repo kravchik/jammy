@@ -89,8 +89,10 @@ public class MatcherShortNames {
                 bi.value = last;
             } else {
                 if (Reflector.getField(o.getClass(), "rest") == null) BadException.die("expected object with field 'rest', but was " + o);
-                if (Reflector.get(o, "rest") != null) BadException.die("expected null at 'rest' but was " + Reflector.get(o, "rest"));
-                Reflector.set(o, "rest", last);
+                Object valueAtRest = Reflector.get(o, "rest");
+                if (valueAtRest == null || valueAtRest.getClass() == MatchAny.class) {
+                    Reflector.set(o, "rest", last);
+                } else BadException.die("expected null at 'rest' but was " + valueAtRest);
             }
             last = o;
         }

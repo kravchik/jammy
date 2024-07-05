@@ -1,4 +1,11 @@
 
+extract project
+  Jammy
+
+extract project
+  yrte-moeg (geometry)
+
+
 expose ASerializer
 don't generate empty serealize/deserialize methods
 implement ABroadSerializer

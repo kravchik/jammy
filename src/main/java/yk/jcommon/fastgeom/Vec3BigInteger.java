@@ -6,6 +6,8 @@ import java.math.BigInteger;
 import java.util.Objects;
 import java.util.function.Function;
 
+import static yk.jcommon.utils.BigIntegerMath.bi;
+
 public class Vec3BigInteger {
     public BigInteger x, y, z;
 
@@ -16,6 +18,8 @@ public class Vec3BigInteger {
     }
 
     public static Vec3BigInteger v3bi(long b) {return v3bi(BigInteger.valueOf(b));}
+    public static Vec3BigInteger v3bi(Vec3l from) {return v3bi(bi(from.x), bi(from.y), bi(from.z));}
+    public static Vec3BigInteger v3bi(Vec3i from) {return v3bi(bi(from.x), bi(from.y), bi(from.z));}
     public static Vec3BigInteger v3bi(long x, long y, long z) {return v3bi(BigInteger.valueOf(x), BigInteger.valueOf(y), BigInteger.valueOf(z));}
 
 //2022 auto generated text
